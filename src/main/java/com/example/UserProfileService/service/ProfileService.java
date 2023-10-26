@@ -6,6 +6,7 @@ import com.example.UserProfileService.model.ProfileResponse;
 import com.example.UserProfileService.repository.ProfileRepository;
 import com.example.UserProfileService.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.JsonParser;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,8 +25,10 @@ public class ProfileService {
 
     public ProfileResponse myProfile(ProfileRequest request) {
 
-        var user = repository.findByEmail(request.getEmail()).orElseThrow();
-//        System.out.println(user.getProfile());
-        return ProfileResponse.builder().build();
+        var user = repository.findById(request.getId());
+//        System.out.println(user.getProfile().getId());
+//        return user.getProfile().toString();
+        Profile profile = user.getProfile();
+        return new ProfileResponse(profile.getName(), profile.getGender(), profile.getAge(), profile.getDetail());
     }
 }

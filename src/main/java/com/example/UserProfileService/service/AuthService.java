@@ -126,7 +126,7 @@ public class AuthService {
             var realtoken = this.tokenRepository.findByToken(token)
                     .orElseThrow();
             if(jwtService.isTokenValid(token, user) && !realtoken.isExpired()) {
-                return MeResponse.builder().id(user.getId()).username(user.getName()).email(user.getEmail()).build();
+                return MeResponse.builder().id(user.getId()).email(user.getEmail()).build();
             }
         }
         return null;

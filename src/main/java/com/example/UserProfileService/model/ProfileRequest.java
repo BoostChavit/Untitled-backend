@@ -7,5 +7,5 @@ import java.util.UUID;
 
 @Data
 public class ProfileRequest {
-    private String email;
+    private Integer id;
 }

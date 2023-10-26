@@ -1,5 +1,6 @@
 package com.example.UserProfileService.model;
 
+import com.example.UserProfileService.entity.Profile;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +14,6 @@ import lombok.NoArgsConstructor;
 public class MeResponse {
     @JsonProperty("id")
     Integer id;
-    @JsonProperty("username")
-    String username;
     @JsonProperty("email")
     String email;
 }
