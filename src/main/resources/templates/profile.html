@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Person List</title>
+</head>
+<body>
+<h2>Person List</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Profile Image</th>
+    </tr>
+    <th:block th:each="profile : ${profiles}">
+        <tr>
+            <td th:text="${profile.id}"></td>
+            <td th:text="${profile.name}"></td>
+            <td th:text="${profile.gender}"></td>
+            <td><img th:src="'data:image/jpeg;base64,' + ${profile.profileImage}" th:alt="${profile.name}'s Profile Image" width="100" /></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
