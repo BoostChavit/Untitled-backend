@@ -26,9 +26,7 @@ public class ProfileService {
     public ProfileResponse myProfile(ProfileRequest request) {
 
         var user = repository.findById(request.getId());
-//        System.out.println(user.getProfile().getId());
-//        return user.getProfile().toString();
         Profile profile = user.getProfile();
-        return new ProfileResponse(profile.getName(), profile.getGender(), profile.getAge(), profile.getDetail());
+        return new ProfileResponse(profile.getName(), profile.getGender(), profile.getDetail());
     }
 }

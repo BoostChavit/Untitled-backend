@@ -52,7 +52,12 @@ public class AuthService {
 
     //ใช้สร้าง profile ของ user ใหม่
     public ResponseEntity register(RegisterRequest request) {
-        Profile myProfile = new Profile();
+        var myProfile = Profile.builder()
+                .name(request.getName())
+                .detail(request.getDetail())
+                .birthday(request.getBirthday())
+                .gender(request.getGender())
+                .build();
         var user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

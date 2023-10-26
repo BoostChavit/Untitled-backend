@@ -17,9 +17,6 @@ public class ProfileResponse {
     @JsonProperty("gender")
     private String gender;
 
-    @JsonProperty("age")
-    private String age;
-
     @JsonProperty("detail")
     private String detail;
 
