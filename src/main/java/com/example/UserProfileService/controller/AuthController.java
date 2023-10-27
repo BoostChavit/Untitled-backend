@@ -28,6 +28,9 @@ public class AuthController {
     public ResponseEntity<Object> register(
             @RequestBody RegisterRequest request
     ) {
+        if(!request.isComplete()) {
+            return ResponseEntity.badRequest().body("Please fill all the form");
+        }
         if(service.emailIsExisted(request)) {
             return ResponseEntity.badRequest().body("Email is used");
         }

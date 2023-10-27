@@ -10,4 +10,11 @@ public class RegisterRequest {
     private String birthday;
     private String detail;
     private String gender;
+
+    public boolean isComplete() {
+        if(email.isEmpty() && password.isEmpty() && name.isEmpty() && birthday.isEmpty() && detail.isEmpty() && gender.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 }
