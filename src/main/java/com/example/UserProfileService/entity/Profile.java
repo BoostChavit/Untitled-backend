@@ -24,16 +24,9 @@ public class Profile {
     private String gender;
     private String birthday;
     private String detail;
-//    @Lob
-//    @CollectionTable(name = "profile_image")
-//    private List<byte[]> profileImage = new ArrayList<>();
 
-
-    // Getter for profileImage
-//    public List<byte[]> getProfileImage() {
-//        return profileImage;
-//    }
-
+    @OneToMany(mappedBy = "profile")
+    private List<Image> images;
 
     @OneToOne(mappedBy = "profile")
     private User user;
