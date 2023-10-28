@@ -85,7 +85,6 @@ public class AuthService {
         saveUserToken(user, jwtToken);
         return AuthResponse.builder()
                 .accessToken(jwtToken)
-                .refreshToken(refreshToken)
                 .build();
     }
 
@@ -131,7 +130,7 @@ public class AuthService {
             var realtoken = this.tokenRepository.findByToken(token)
                     .orElseThrow();
             if(jwtService.isTokenValid(token, user) && !realtoken.isExpired()) {
-                return MeResponse.builder().id(user.getId()).email(user.getEmail()).build();
+                return MeResponse.builder().id(user.getId()).email(user.getEmail()).name(user.getProfile().getName()).build();
             }
         }
         return null;
@@ -158,7 +157,6 @@ public class AuthService {
                 saveUserToken(user, accessToken);
                 var authResponse = AuthResponse.builder()
                         .accessToken(accessToken)
-                        .refreshToken(refreshToken)
                         .build();
                 new ObjectMapper().writeValue(response.getOutputStream(), authResponse);
             }

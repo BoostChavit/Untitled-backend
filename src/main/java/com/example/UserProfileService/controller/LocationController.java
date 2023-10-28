@@ -4,6 +4,7 @@ import com.example.UserProfileService.model.LocationResponse;
 import com.example.UserProfileService.service.LocationService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class LocationController {
     private LocationService locationService;

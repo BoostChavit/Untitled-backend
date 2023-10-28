@@ -16,4 +16,6 @@ public class MeResponse {
     Integer id;
     @JsonProperty("email")
     String email;
+    @JsonProperty("name")
+    String name;
 }
